@@ -74,7 +74,15 @@ if(array_key_exists("type", $_GET))
   // create a DOM document and load the XML data
   $xml_doc = new DomDocument;
   $xml_doc->load($query);
-  
+
+// encode any special characters from fields
+$xpath = new DOMXPath($xml_doc);
+$fields = $xpath->query("//field[@name='headline']|//field[@name='trail-text']");
+
+foreach ($fields as $field) {
+    echo strip_tags(htmlentities($field->textContent));
+}
+
   // transform the XML into HTML using the XSL file
   if ($html = $xp->transformToXML($xml_doc)) {
       echo $html;
