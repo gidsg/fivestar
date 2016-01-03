@@ -2,11 +2,6 @@
 
 $API_key="***REMOVED***";
 $CAPI_host="http://content.guardianapis.com/";
-
-function clean_capi_output($input) {
-    return strip_tags(htmlentities($input));
-}
-
                       
 //set some parameters based on the querystring
 if(array_key_exists("page", $_GET)) 
@@ -73,6 +68,11 @@ if(array_key_exists("type", $_GET))
      $xp->setParameter($namespace, 'nextpage', $nextpage);
      $xp->setParameter($namespace, 'nextpagelink', $nextpagelink); 
           
+    
+  
+    
+  
+  
   // create a DOM document and load the XML data
   $xml_doc = new DomDocument;
   $xml_doc->load($query);

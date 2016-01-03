@@ -28,10 +28,11 @@
  <xsl:for-each select="/response/results/result">
  <xsl:sort select="fields/field[@name='star-rating']" data-type="number" order="descending" />
  <div class="item">
-      <li class="listitem"><a href="{@web-url}"><xsl:value-of select="fields/field[@name='headline']" disable-output-escaping="yes"/></a>
+     <xsl:variable name="headline" select="fields/field[@name='headline']"/>
+      <li class="listitem"><a href="{@web-url}"><xsl:value-of select="php:function('strip_tags',string($headline))" disable-output-escaping="yes"/></a>
       <xsl:if test="fields/field[@name='thumbnail']"> <img class="thumbnail" src="{fields/field[@name='thumbnail']}" height="84" width="140" /> </xsl:if> 
           <xsl:variable name="trail-text" select="fields/field[@name='trail-text']"/>
-         <div class="trail"> <xsl:value-of select="php:function('clean_capi_output',string($trail-text))" disable-output-escaping="yes"/>
+         <div class="trail"> <xsl:value-of select="php:function('strip_tags',string($trail-text))" disable-output-escaping="yes"/>
            </div>   
         <div class="verdict">
           <xsl:choose>
