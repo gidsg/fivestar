@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <xsl:stylesheet version="1.0"
-xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+    xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+    xmlns:php="http://php.net/xsl"
+    xsl:extension-element-prefixes="php"
+>
 
 <xsl:output method="html" version="4.0" indent="yes"/>
 <xsl:template match="/">
@@ -26,10 +29,10 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
  <xsl:sort select="fields/field[@name='star-rating']" data-type="number" order="descending" />
  <div class="item">
       <li class="listitem"><a href="{@web-url}"><xsl:value-of select="fields/field[@name='headline']" disable-output-escaping="yes"/></a>
-      <xsl:if test="fields/field[@name='thumbnail']"> <img class="thumbnail" src="{fields/field[@name='thumbnail']}" height="84" width="140" /> </xsl:if>  
-       
-         <div class="trail"> <xsl:value-of select="fields/field[@name='trail-text']" disable-output-escaping="yes"/></div>       
-       
+      <xsl:if test="fields/field[@name='thumbnail']"> <img class="thumbnail" src="{fields/field[@name='thumbnail']}" height="84" width="140" /> </xsl:if> 
+          <xsl:variable name="trail-text" select="fields/field[@name='trail-text']"/>
+         <div class="trail"> <xsl:value-of select="php:function('clean_capi_output',string($trail-text))" disable-output-escaping="yes"/>
+           </div>   
         <div class="verdict">
           <xsl:choose>
     <xsl:when test="fields/field[@name='star-rating'] = 0">

@@ -2,6 +2,12 @@
 
 $API_key="***REMOVED***";
 $CAPI_host="http://content.guardianapis.com/";
+
+function clean_capi_output($input) {
+    return strip_tags(htmlentities($input));
+}
+
+                      
 //set some parameters based on the querystring
 if(array_key_exists("page", $_GET)) 
 {
@@ -51,6 +57,7 @@ if(array_key_exists("type", $_GET))
 
 
   $xp = new XsltProcessor();
+  $xp->registerPHPFunctions();
   
  // create a DOM document and load the XSL stylesheet
   $xsl = new DomDocument;
@@ -66,22 +73,9 @@ if(array_key_exists("type", $_GET))
      $xp->setParameter($namespace, 'nextpage', $nextpage);
      $xp->setParameter($namespace, 'nextpagelink', $nextpagelink); 
           
-    
-  
-    
-  
-  
   // create a DOM document and load the XML data
   $xml_doc = new DomDocument;
   $xml_doc->load($query);
-
-// encode any special characters from fields
-$xpath = new DOMXPath($xml_doc);
-$fields = $xpath->query("//field[@name='headline']|//field[@name='trail-text']");
-
-foreach ($fields as $field) {
-    echo strip_tags(htmlentities($field->textContent));
-}
 
   // transform the XML into HTML using the XSL file
   if ($html = $xp->transformToXML($xml_doc)) {
