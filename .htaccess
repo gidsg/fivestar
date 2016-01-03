@@ -1,0 +1,2 @@
+RewriteEngine on
+RewriteRule ^type/([^/\.]+)/?$ index.php?type=$1 [L]
