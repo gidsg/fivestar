@@ -1,6 +1,6 @@
 <?php
+include 'config.php';
 
-$API_key="***REMOVED***";
 $CAPI_host="http://content.guardianapis.com/";
                       
 //set some parameters based on the querystring
