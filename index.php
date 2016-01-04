@@ -82,6 +82,6 @@ if(array_key_exists("type", $_GET))
       echo $html;
   } else {
       trigger_error('XSL transformation failed.', E_USER_ERROR);
-  } // if 
+  } 
 
 ?> 

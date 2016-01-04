@@ -64,9 +64,7 @@
  </div>
       </xsl:for-each> 
    </ol>
-  <!--  <xsl:if test="$page &lt; 5">-->
    <a href="{$nextpagelink}">Next page (older reviews)</a><br/>
-   <!-- </xsl:if>-->
 <a href="http://www.guardian.co.uk"><img src="/fivestar/images/poweredbyguardianBLACK.png" alt="Powered by the Guardian" width="140" height="45"  /></a><br /> By <a href="/">Gideon Goldberg</a>
   </body>
   </html>
