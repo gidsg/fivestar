@@ -54,10 +54,6 @@
     <xsl:when test="fields/field[@name='star-rating'] = 5">
    <img src="/fivestar/images/5.png" alt="5 stars" />
     </xsl:when>
-       <xsl:otherwise>
-     <em>unrated</em>
-    </xsl:otherwise>
-
   </xsl:choose>
         </div>          
 </li>
