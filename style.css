@@ -1,7 +1,7 @@
 /*item {display: block;}*/
 body {font-family: sans-serif;}
 h1 {padding-left: 40px;}
-#navlist li
+#navlist li, #ratinglist li
 {
 display: inline;
 list-style-type: none;

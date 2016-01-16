@@ -22,6 +22,19 @@
 <li><a href="/fivestar/type/music">Music Reviews</a></li>
 <li><a href="/fivestar/type/stage">Stage Reviews</a></li>
 </ul>
+
+<ul id="ratinglist">
+<li>Filter by star rating: 
+<a href="{path}?star-rating=5">5</a></li>
+<li><a href="{path}?star-rating=4">4</a></li>
+<li><a href="{path}?star-rating=3">3</a></li>
+<li><a href="{path}?star-rating=2">2</a></li>
+<li><a href="{path}?star-rating=1">1</a></li>
+</ul>
+
+        
+        
+        
 </div>
     <div class="intro">Latest Guardian <xsl:value-of select="$title"/> sorted by Star Rating. <em>Cut the crap!</em></div>    
    <ol>

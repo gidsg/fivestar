@@ -25,6 +25,11 @@ $star_rating=urlencode("5|4|3|2|1");
 
 
 $nextpage=$page+1;
+
+//store the URL path
+$url = $_SERVER['REQUEST_URI'];
+$path = parse_url($url, PHP_URL_PATH);
+
 if(array_key_exists("type", $_GET)) 
 {
     if($_GET["type"] == "film")
@@ -75,6 +80,7 @@ if(array_key_exists("type", $_GET))
      $xp->setParameter($namespace, 'page', $page);
      $xp->setParameter($namespace, 'nextpage', $nextpage);
      $xp->setParameter($namespace, 'nextpagelink', $nextpagelink); 
+     $xp->setParameter($namespace, 'path', $path); 
           
     
   
