@@ -47,18 +47,18 @@ if(array_key_exists("type", $_GET))
 {
     if($_GET["type"] == "film")
     {
-     $query="{$CAPI_host}search?tag=tone%2Freviews%2C+film%2Ffilm&page-size=100&order-by=newest&format=xml&show-fields=headline%2Ctrail-text%2Cthumbnail%2Cstar-rating&page={$page}&star-rating=[$star_rating}&api-key={$API_key}";
+     $query="{$CAPI_host}search?tag=tone%2Freviews%2C+film%2Ffilm&page-size=100&order-by=newest&format=xml&show-fields=headline%2Ctrail-text%2Cthumbnail%2Cstar-rating&page={$page}&star-rating=${star_rating}&api-key={$API_key}";
      $title='Film Reviews';
     }
     elseif($_GET["type"] == "music")
     {
-     $query="{$CAPI_host}search?tag=tone%2Falbumreview%2C+music%2Fmusic&page-size=100&order-by=newest&format=xml&show-fields=headline%2Ctrail-text%2Cthumbnail%2Cstar-rating&page={$page}&star-rating=[$star_rating}&api-key={$API_key}";
+     $query="{$CAPI_host}search?tag=tone%2Falbumreview%2C+music%2Fmusic&page-size=100&order-by=newest&format=xml&show-fields=headline%2Ctrail-text%2Cthumbnail%2Cstar-rating&page={$page}&star-rating=${star_rating}&api-key={$API_key}";
      $title='Music Reviews';
      $nextpagelink="music&page={$nextpage}";
     }
     elseif($_GET["type"] == "stage")
     {
-     $query="{$CAPI_host}search?tag=tone%2Freviews%2C+stage%2Fstage&page-size=100&order-by=newest&format=xml&show-fields=headline%2Ctrail-text%2Cthumbnail%2Cstar-rating&page={$page}&star-rating=[$star_rating}&api-key={$API_key}";
+     $query="{$CAPI_host}search?tag=tone%2Freviews%2C+stage%2Fstage&page-size=100&order-by=newest&format=xml&show-fields=headline%2Ctrail-text%2Cthumbnail%2Cstar-rating&page={$page}&star-rating=${star_rating}&api-key={$API_key}";
      $title='Stage Reviews';
     }
 }   
