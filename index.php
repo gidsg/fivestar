@@ -2,7 +2,8 @@
 include 'config.php';
 
 $CAPI_host="http://content.guardianapis.com/";
-                      
+
+
 //set some parameters based on the querystring
 if(array_key_exists("page", $_GET)) 
 {
@@ -20,7 +21,7 @@ $star_rating=$_GET["star-rating"];
 }
 else
 {
-$star_rating=urlencode("5|4|3|2|1");  
+$star_rating="5|4|3|2|1";  
 }
 
 
@@ -43,29 +44,40 @@ function setQueryString($key, $val=''){
 $nextpagelink = setQueryString('page', $nextpage);
 $starratinglink = setQueryString('star-rating');
 
+$common_params = array(
+              'page-size'=>'100',
+              'order-by'=>'newest',
+              'format'=>'xml',
+              'show-fields' => 'headline,trail-text,thumbnail,star-rating',
+              'page' => $page,
+              'star-rating' => $star_rating,
+              'api-key' => $API_key);
+$film_params = array('tag' => 'tone/reviews, film/film');
+$music_params = array('tag' => 'tone/albumreview, music/music');
+$stage_params = array('tag' => 'tone/reviews, stage/stage');
+
 if(array_key_exists("type", $_GET)) 
 {
     if($_GET["type"] == "film")
-    {
-     $query="{$CAPI_host}search?tag=tone%2Freviews%2C+film%2Ffilm&page-size=100&order-by=newest&format=xml&show-fields=headline%2Ctrail-text%2Cthumbnail%2Cstar-rating&page={$page}&star-rating=${star_rating}&api-key={$API_key}";
+    {        
+     $query="{$CAPI_host}search?".http_build_query(array_merge($common_params, $film_params));
      $title='Film Reviews';
     }
     elseif($_GET["type"] == "music")
     {
-     $query="{$CAPI_host}search?tag=tone%2Falbumreview%2C+music%2Fmusic&page-size=100&order-by=newest&format=xml&show-fields=headline%2Ctrail-text%2Cthumbnail%2Cstar-rating&page={$page}&star-rating=${star_rating}&api-key={$API_key}";
+     $query="{$CAPI_host}search?".http_build_query(array_merge($common_params, $music_params));;
      $title='Music Reviews';
-     $nextpagelink="music&page={$nextpage}";
     }
     elseif($_GET["type"] == "stage")
     {
-     $query="{$CAPI_host}search?tag=tone%2Freviews%2C+stage%2Fstage&page-size=100&order-by=newest&format=xml&show-fields=headline%2Ctrail-text%2Cthumbnail%2Cstar-rating&page={$page}&star-rating=${star_rating}&api-key={$API_key}";
+     $query="{$CAPI_host}search?".http_build_query(array_merge($common_params, $stage_params));   ;
      $title='Stage Reviews';
     }
 }   
     else
        {
         $title='Film Reviews';
-        $query="{$CAPI_host}search?tag=tone%2Freviews%2C+film%2Ffilm&page-size=100&order-by=newest&format=xml&show-fields=headline%2Ctrail-text%2Cthumbnail%2Cstar-rating&page={$page}&star-rating=${star_rating}&api-key={$API_key}";
+        $query="{$CAPI_host}search?".http_build_query(array_merge($common_params, $film_params));
        }
 
   $xp = new XsltProcessor();
