@@ -25,11 +25,11 @@
 
 <ul id="ratinglist">
 <li>Filter by star rating: 
-<a href="{path}?star-rating=5">5</a></li>
-<li><a href="{path}?star-rating=4">4</a></li>
-<li><a href="{path}?star-rating=3">3</a></li>
-<li><a href="{path}?star-rating=2">2</a></li>
-<li><a href="{path}?star-rating=1">1</a></li>
+<a href="{$starratinglink}5">5</a></li>
+<li><a href="{$starratinglink}4">4</a></li>
+<li><a href="{$starratinglink}3">3</a></li>
+<li><a href="{$starratinglink}2">2</a></li>
+<li><a href="{$starratinglink}1">1</a></li>
 </ul>
 
         

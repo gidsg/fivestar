@@ -26,9 +26,22 @@ $star_rating=urlencode("5|4|3|2|1");
 
 $nextpage=$page+1;
 
-//store the URL path
-$url = $_SERVER['REQUEST_URI'];
-$path = parse_url($url, PHP_URL_PATH);
+
+function setQueryString($key, $val=''){
+    $pUrl = parse_url($_SERVER['REQUEST_URI']);
+    if(isset($pUrl['query']))
+        parse_str($pUrl['query'], $pUrl['query']);
+    else $pUrl['query'] = [];
+    $pUrl['query'][$key] = $val;
+    $path = isset($pUrl['path']) ? $pUrl['path'] : '';
+    $path = count($pUrl['query'])>0 ? $path.'?' : $path;
+
+    return $path . http_build_query($pUrl['query']);
+}
+
+
+$nextpagelink = setQueryString('page', $nextpage);
+$starratinglink = setQueryString('star-rating');
 
 if(array_key_exists("type", $_GET)) 
 {
@@ -36,7 +49,6 @@ if(array_key_exists("type", $_GET))
     {
      $query="{$CAPI_host}search?tag=tone%2Freviews%2C+film%2Ffilm&page-size=100&order-by=newest&format=xml&show-fields=headline%2Ctrail-text%2Cthumbnail%2Cstar-rating&page={$page}&star-rating=[$star_rating}&api-key={$API_key}";
      $title='Film Reviews';
-     $nextpagelink="film&page={$nextpage}";
     }
     elseif($_GET["type"] == "music")
     {
@@ -48,21 +60,13 @@ if(array_key_exists("type", $_GET))
     {
      $query="{$CAPI_host}search?tag=tone%2Freviews%2C+stage%2Fstage&page-size=100&order-by=newest&format=xml&show-fields=headline%2Ctrail-text%2Cthumbnail%2Cstar-rating&page={$page}&star-rating=[$star_rating}&api-key={$API_key}";
      $title='Stage Reviews';
-     $nextpagelink="stage&page={$nextpage}";
     }
-    
 }   
     else
-
-
        {
         $title='Film Reviews';
         $query="{$CAPI_host}search?tag=tone%2Freviews%2C+film%2Ffilm&page-size=100&order-by=newest&format=xml&show-fields=headline%2Ctrail-text%2Cthumbnail%2Cstar-rating&page={$page}&star-rating=${star_rating}&api-key={$API_key}";
-        $nextpagelink="?page={$nextpage}";;
        }
-
-
-
 
   $xp = new XsltProcessor();
   $xp->registerPHPFunctions();
@@ -77,16 +81,9 @@ if(array_key_exists("type", $_GET))
   //set some parameters in the XSLT
 
      $xp->setParameter($namespace, 'title', $title);
-     $xp->setParameter($namespace, 'page', $page);
-     $xp->setParameter($namespace, 'nextpage', $nextpage);
      $xp->setParameter($namespace, 'nextpagelink', $nextpagelink); 
-     $xp->setParameter($namespace, 'path', $path); 
-          
-    
-  
-    
-  
-  
+     $xp->setParameter($namespace, 'starratinglink', $starratinglink); 
+            
   // create a DOM document and load the XML data
   $xml_doc = new DomDocument;
   $xml_doc->load($query);
