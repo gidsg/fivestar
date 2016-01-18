@@ -18,9 +18,9 @@
     <h1>Five star - <xsl:value-of select="$title"/></h1>
     <div id="navcontainer">
 <ul id="navlist">
-<li>Review type: <a href="/fivestar/type/film" id="current">Film Reviews</a></li>
-<li><a href="/fivestar/type/music">Music Reviews</a></li>
-<li><a href="/fivestar/type/stage">Stage Reviews</a></li>
+<li>Review type: <a href="/fivestar?type=film" id="current">Film Reviews</a></li>
+<li><a href="/fivestar?type=music">Music Reviews</a></li>
+<li><a href="/fivestar?type=stage">Stage Reviews</a></li>
 </ul>
 
 <ul id="ratinglist">
