@@ -9,12 +9,15 @@
           .trail-pic{
               vertical-align: text-top;
               float:left;
+              margin-right: 5px;
             
           }
           .item{
-              align-items: baseline;
-              min-height: 200px;
+             align-items: baseline;
+              overflow: visible;
+              display:inline-block;
           }
+          
       </style>
 
     <!-- Material Design icons -->
@@ -51,47 +54,66 @@
 
   </head>
     <body>
-        <div class="container">
-        <header class="mdl-layout__header mdl-layout__header--scroll mdl-color--primary">
-      <h1>Five Star</h1>
-        </div>
-            <div class="container">
+<!-- Always shows a header, even in smaller screens. -->
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div class="mdl-layout__header-row">
+      <!-- Title -->
+      <span class="mdl-layout-title">Five Star</span>
+      <!-- Add spacer, to align navigation to the right -->
+      <div class="mdl-layout-spacer"></div>
+      <!-- Navigation. We hide it in small screens. -->
+      <nav class="mdl-navigation mdl-layout--large-screen-only">
+        <a class="mdl-navigation__link" href="">Link</a>
+        <a class="mdl-navigation__link" href="">Link</a>
+        <a class="mdl-navigation__link" href="">Link</a>
+        <a class="mdl-navigation__link" href="">Link</a>
+      </nav>
+    </div>
+  </header>
+  <div class="mdl-layout__drawer">
+    <span class="mdl-layout-title">Five Star</span>
+    <nav class="mdl-navigation">
+      <a class="mdl-navigation__link" href="">Link</a>
+      <a class="mdl-navigation__link" href="">Link</a>
+      <a class="mdl-navigation__link" href="">Link</a>
+      <a class="mdl-navigation__link" href="">Link</a>
+    </nav>
+  </div>
+  <main class="mdl-layout__content">
+    <div class="page-content"><!-- Your content goes here --></div>
+  </main>
+</div>
+            
 <ul class="demo-list-two mdl-list">
   <li class="mdl-list__item mdl-list__item--three-line item">
     <span class="mdl-list__item-primary-content">
      
       <a href="#"><h5>Bryan Cranston</h5></a>
   
-      <img src="http://media.guim.co.uk/bd1e6398576056799c8dce54b76b18990b0c5caf/0_11_2560_1537/500.jpg" width="140" height="84" class="trail-pic" /> Charlie Kaufman achieves further artistic greatness with this hilariously funny and horribly real animation about the unbearable loneliness of being
+      <img src="http://media.guim.co.uk/bd1e6398576056799c8dce54b76b18990b0c5caf/0_11_2560_1537/500.jpg" width="140" height="84" class="trail-pic" /> Charlie Kaufman achieves further artistic greatness with this hilariously funny and horribly real animation about the unbearable loneliness of being more words 
+               <br /><img src="http://gidsg.com/fivestar/images/5.png" alt="5 stars">
     </span>
-    
-      <i class="material-icons star-on">star</i><i class="material-icons">star</i><i class="material-icons">star</i><i class="material-icons">star</i><i class="material-icons">star</i>
+     
+
 
   </li>
-  <li class="mdl-list__item mdl-list__item--two-line">
+   <li class="mdl-list__item mdl-list__item--three-line item">
     <span class="mdl-list__item-primary-content">
-      <i class="material-icons mdl-list__item-avatar">person</i>
-      <span>Aaron Paul</span>
-      <span class="mdl-list__item-sub-title">62 Episodes</span>
+     
+      <a href="#"><h5>Bryan Cranston</h5></a>
+  
+      <img src="http://media.guim.co.uk/bd1e6398576056799c8dce54b76b18990b0c5caf/0_11_2560_1537/500.jpg" width="140" height="84" class="trail-pic" /> Charlie Kaufman achieves further artistic greatness with this hilariously funny and horribly real animation about the unbearable loneliness of being more words 
+        <br /><i class="material-icons star-on">star</i><i class="material-icons">star</i><i class="material-icons">star</i><i class="material-icons">star</i><i class="material-icons">star</i>
     </span>
-    <span class="mdl-list__item-secondary-content">
-      <a class="mdl-list__item-secondary-action" href="#"><i class="material-icons">star</i></a>
-    </span>
-  </li>
-  <li class="mdl-list__item mdl-list__item--two-line">
-    <span class="mdl-list__item-primary-content">
-      <i class="material-icons mdl-list__item-avatar">person</i>
-      <span>Bob Odenkirk</span>
-      <span class="mdl-list__item-sub-title">62 Episodes</span>
-    </span>
-    <span class="mdl-list__item-secondary-content">
-      <a class="mdl-list__item-secondary-action" href="#"><i class="material-icons">star</i></a>
-    </span>
+    
+
+
   </li>
 </ul>
             
             
-            </div>
+           
 
    
     <!-- Built with love using Web Starter Kit -->
