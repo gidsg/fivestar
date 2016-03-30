@@ -99,6 +99,13 @@
     
     </div>
        </main>
+          <footer class="mdl-mini-footer">
+                <div class="mdl-mini-footer__left-section">
+      <div class="mdl-logo">By <a href="/">Gideon Goldberg</a></div> <img src="https://static.guim.co.uk/sys-images/Guardian/Pix/pictures/2010/03/01/poweredbyguardianWHITE.png" alt="Powered by the Guardian" width="140" height="45" />
+  </div>
+                  
+
+</footer>
       </div>
   </body>
   </html>
