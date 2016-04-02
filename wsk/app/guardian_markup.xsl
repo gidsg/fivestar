@@ -5,7 +5,7 @@
     xsl:extension-element-prefixes="php"
 >
 
-<xsl:output method="html" version="4.0" indent="yes"/>
+<xsl:output method="html" doctype-system="about:legacy-compat" />
 <xsl:template match="/">
    <html>
      <head>
@@ -24,6 +24,7 @@
              align-items: baseline;
               overflow: visible;
               display:inline-block;
+                clear:both;
           }
           .nav-icon{
               color:rgb(117, 117, 117);
@@ -90,19 +91,22 @@
 <main class="mdl-layout__content">
     <div class="page-content">
       <ul class="demo-list-two mdl-list">
-           <xsl:for-each select="/response/results/result">
+          
+          <!-- templated items -->
+          
+                     <xsl:for-each select="/response/results/result">
             <xsl:sort select="fields/field[@name='star-rating']" data-type="number" order="descending" />
                
    <li class="mdl-list__item mdl-list__item--three-line item">
     <span class="mdl-list__item-primary-content">
      <xsl:variable name="headline" select="fields/field[@name='headline']"/>
         <h5><a href="{@web-url}"><xsl:value-of select="php:function('strip_tags',string($headline))" disable-output-escaping="yes"/></a></h5>
-  
-       <xsl:if test="fields/field[@name='thumbnail']"> <img class="trail-pic" src="{fields/field[@name='thumbnail']}" height="84" width="140" /> </xsl:if>          
+        <xsl:if test="fields/field[@name='thumbnail']"><img src="{fields/field[@name='thumbnail']}" width="140" height="84" class="trail-pic" /></xsl:if>
         <xsl:variable name="trail-text" select="fields/field[@name='trail-text']"/>
-         <div class="trail"> <xsl:value-of select="php:function('strip_tags',string($trail-text))" disable-output-escaping="yes"/>
-           </div>  
-         <xsl:choose>
+        <xsl:value-of select="php:function('strip_tags',string($trail-text))" disable-output-escaping="yes"/>
+        <br />
+        <!-- stars -->
+        <xsl:choose>
          <xsl:when test="fields/field[@name='star-rating'] = 0">
 
         <i class="material-icons">star</i><i class="material-icons">star</i><i class="material-icons">star</i><i class="material-icons">star</i><i class="material-icons">star</i>
@@ -132,15 +136,28 @@
     
         </xsl:when>
         </xsl:choose>
-            </span>
-         </li>
-        </xsl:for-each>
-        </ul>
+       </span>
+                         </li>
+                
+          </xsl:for-each>
+          
+          
+         </ul>
 
 
     
     </div>
-       </main>
+
+               <a class="mdl-list__item-secondary-action" href="#"><i class="nav-icon material-icons">keyboard_arrow_left</i></a>  
+               <a class="mdl-list__item-secondary-action" href="#"><i class="nav-icon material-icons">keyboard_arrow_right</i></a>   
+          <footer class="mdl-mini-footer">
+                <div class="mdl-mini-footer__left-section">
+      <div class="mdl-logo">By <a href="/">Gideon Goldberg</a></div> <img src="https://static.guim.co.uk/sys-images/Guardian/Pix/pictures/2010/03/01/poweredbyguardianWHITE.png" alt="Powered by the Guardian" width="140" height="45" />
+  </div>
+                  
+
+</footer>
+           </main>
       </div>
   </body>
   </html>
