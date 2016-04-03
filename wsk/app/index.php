@@ -5,6 +5,15 @@ $CAPI_host="http://content.guardianapis.com/";
 
 
 //set some parameters based on the querystring
+if(array_key_exists("type", $_GET)) 
+{
+$type=$_GET["type"];    
+}
+else
+{
+$type="film";  
+}
+
 if(array_key_exists("page", $_GET)) 
 {
 $page=$_GET["page"];    
@@ -56,29 +65,23 @@ $film_params = array('tag' => 'tone/reviews, film/film');
 $music_params = array('tag' => 'tone/albumreview, music/music');
 $stage_params = array('tag' => 'tone/reviews, stage/stage');
 
-if(array_key_exists("type", $_GET)) 
-{
-    if($_GET["type"] == "film")
+    if($type == "film")
     {        
      $query="{$CAPI_host}search?".http_build_query(array_merge($common_params, $film_params));
      $title='Film Reviews';
     }
-    elseif($_GET["type"] == "music")
+    elseif($type == "music")
     {
      $query="{$CAPI_host}search?".http_build_query(array_merge($common_params, $music_params));;
      $title='Music Reviews';
     }
-    elseif($_GET["type"] == "stage")
+    elseif($type == "stage")
     {
      $query="{$CAPI_host}search?".http_build_query(array_merge($common_params, $stage_params));   ;
      $title='Stage Reviews';
     }
-}   
-    else
-       {
-        $title='Film Reviews';
-        $query="{$CAPI_host}search?".http_build_query(array_merge($common_params, $film_params));
-       }
+   
+
 
   $xp = new XsltProcessor();
   $xp->registerPHPFunctions();

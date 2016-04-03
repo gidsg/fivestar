@@ -40,7 +40,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Five Star</title>
+    <title>Five star - Latest top rated <xsl:value-of select="$title"/> from the Guardian </title>
 
     <!-- Disable tap highlight on IE -->
     <meta name="msapplication-tap-highlight" content="no" />
@@ -77,11 +77,15 @@
       <div class="mdl-layout-spacer"></div>
       <!-- Navigation. We hide it in small screens. -->
       <nav class="mdl-navigation mdl-layout--large-screen-only">
+        <span class="mdl-navigation__link">Filter to: </span>  
+        <a class="mdl-navigation__link" href="{$starratinglink}5">Five star reviews</a>
+        <a class="mdl-navigation__link" href="{$starratinglink}1">One star reviews</a>
+<!--
         <a class="mdl-navigation__link" href="">Link</a>
         <a class="mdl-navigation__link" href="">Link</a>
-        <a class="mdl-navigation__link" href="">Link</a>
-        <a class="mdl-navigation__link" href="">Link</a>
+-->
       </nav>
+        
     </div>
   </header>
   <div class="mdl-layout__drawer">
@@ -149,8 +153,8 @@
     
     </div>
 
-               <a class="mdl-list__item-secondary-action" href="#"><i class="nav-icon material-icons">keyboard_arrow_left</i></a>  
-               <a class="mdl-list__item-secondary-action" href="#"><i class="nav-icon material-icons">keyboard_arrow_right</i></a>   
+               <a class="mdl-list__item-secondary-action" href="{$nextpagelink}"><i class="nav-icon material-icons">keyboard_arrow_right</i></a>  
+<!--               <a class="mdl-list__item-secondary-action" href="#"><i class="nav-icon material-icons">keyboard_arrow_right</i></a>   -->
           <footer class="mdl-mini-footer">
                 <div class="mdl-mini-footer__left-section">
       <div class="mdl-logo">By <a href="/">Gideon Goldberg</a></div> <img src="https://static.guim.co.uk/sys-images/Guardian/Pix/pictures/2010/03/01/poweredbyguardianWHITE.png" alt="Powered by the Guardian" width="140" height="45" />
