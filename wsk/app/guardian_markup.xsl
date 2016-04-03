@@ -21,11 +21,12 @@
             
           }
           .item{
-             align-items: baseline;
+              align-items: baseline;
               overflow: visible;
-              display:inline-block;
-                clear:both;
+              display: inline-block;
+              width: 100%
           }
+          
           .nav-icon{
               color:rgb(117, 117, 117);
               font-size: 48px !important;
