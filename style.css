@@ -1,18 +1,20 @@
-/*item {display: block;}*/
-body {font-family: sans-serif;}
-h1 {padding-left: 40px;}
-#navlist li, #ratinglist li
-{
-display: inline;
-list-style-type: none;
-padding-right: 20px;
-}
+          .star-on{
+              color: rgb(255,215,64);
+          }
+          .trail-pic{
+              vertical-align: text-top;
+              float:left;
+              margin-right: 5px;
 
-#navcontainer a:link {color:#666666;}
-#navcontainer a:visited {color:#666666;}
-div.intro {color: #666666; padding-left: 40px;}
-div.trail {width: 700px;}
-img.thumbnail {float: left; /*clear: both;*/ padding-right:40px;}
-li.listitem {list-style: none; margin-bottom: 15px; padding-bottom: 10px; clear:both; display:block; border-bottom: 1px dashed #cccccc; }
-p {margin-top : 0px; margin-bottom: 0px;}
-img {border: none;}
+          }
+          .item{
+              align-items: baseline;
+              overflow: visible;
+              display: inline-block;
+              width: 100%
+          }
+
+          .nav-icon{
+              color:rgb(117, 117, 117);
+              font-size: 48px !important;
+          }
