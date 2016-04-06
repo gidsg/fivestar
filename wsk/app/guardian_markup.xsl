@@ -39,33 +39,13 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="description" content="" />
+    <meta name="description" content="Guardian reviews sorted by Star Rating." />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Five star - Latest top rated <xsl:value-of select="$title"/> from the Guardian</title>
+    <title>Five star - Latest <xsl:value-of select="concat($starratingtitle,' ', $title)"/>
+ from the Guardian</title>
 
     <!-- Disable tap highlight on IE -->
     <meta name="msapplication-tap-highlight" content="no" />
-
-    <!-- Web Application Manifest -->
-    <link rel="manifest" href="manifest.json" />
-
-    <!-- Add to homescreen for Chrome on Android -->
-    <meta name="mobile-web-app-capable" content="yes" />
-    <meta name="application-name" content="Web Starter Kit" />
-    <link rel="icon" sizes="192x192" href="images/touch/chrome-touch-icon-192x192.png" />
-
-    <!-- Add to homescreen for Safari on iOS -->
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-    <meta name="apple-mobile-web-app-title" content="Web Starter Kit" />
-    <link rel="apple-touch-icon" href="images/touch/apple-touch-icon.png" />
-
-    <!-- Tile icon for Win8 (144x144 + tile color) -->
-    <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png" />
-    <meta name="msapplication-TileColor" content="#2F3BA2" />
-
-    <!-- Color the status bar on mobile devices -->
-    <meta name="theme-color" content="#2F3BA2" />
         </head>
 
   <body>
@@ -78,13 +58,9 @@
       <div class="mdl-layout-spacer"></div>
       <!-- Navigation. We hide it in small screens. -->
       <nav class="mdl-navigation mdl-layout--large-screen-only">
-        <span class="mdl-navigation__link">Filter to: </span>
+        <span class="mdl-navigation__link"><i class="material-icons">filter_list</i> Filter to: </span>
         <a class="mdl-navigation__link" href="{$starratinglink}5">Five star reviews</a>
         <a class="mdl-navigation__link" href="{$starratinglink}1">One star reviews</a>
-<!--
-        <a class="mdl-navigation__link" href="">Link</a>
-        <a class="mdl-navigation__link" href="">Link</a>
--->
       </nav>
 
     </div>
@@ -92,10 +68,9 @@
      <div class="mdl-layout__drawer">
        <span class="mdl-layout-title">Five Star</span>
        <nav class="mdl-navigation">
-         <a class="mdl-navigation__link" href="">Film reviews</a>
-         <a class="mdl-navigation__link" href="">Link</a>
-         <a class="mdl-navigation__link" href="">Link</a>
-         <a class="mdl-navigation__link" href="">Link</a>
+         <a class="mdl-navigation__link" href="./">Film reviews</a>
+         <a class="mdl-navigation__link" href="./?type=music">Music reviews</a>
+         <a class="mdl-navigation__link" href="./?type=stage">Stage reviews</a>
        </nav>
      </div>
 
@@ -112,7 +87,7 @@
     <span class="mdl-list__item-primary-content">
      <xsl:variable name="headline" select="fields/field[@name='headline']"/>
         <h5><a href="{@web-url}"><xsl:value-of select="php:function('strip_tags',string($headline))" disable-output-escaping="yes"/></a></h5>
-        <xsl:if test="fields/field[@name='thumbnail']"><img src="{fields/field[@name='thumbnail']}" width="140" height="84" class="trail-pic" /></xsl:if>
+        <xsl:if test="fields/field[@name='thumbnail']"><img src="{fields/field[@name='thumbnail']}" width="140" height="84" class="trail-pic" alt="" /></xsl:if>
         <xsl:variable name="trail-text" select="fields/field[@name='trail-text']"/>
         <xsl:value-of select="php:function('strip_tags',string($trail-text))" disable-output-escaping="yes"/> - <em><xsl:value-of select="fields/field[@name='byline']" disable-output-escaping="yes"/></em>
         <br />
