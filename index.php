@@ -24,7 +24,7 @@ $page=1;
 }
 
 //set some parameters based on the querystring
-if(array_key_exists("star-rating", $_GET))
+if((array_key_exists("star-rating", $_GET)) && ($_GET["star-rating"] < 5) && ($_GET["star-rating"] >= 1) )
 {
 $star_rating=$_GET["star-rating"];
 $starratingtitle= "{$star_rating} Star";
