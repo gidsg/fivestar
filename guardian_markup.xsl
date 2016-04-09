@@ -49,6 +49,9 @@
          <a class="mdl-navigation__link" href="./">Film reviews</a>
          <a class="mdl-navigation__link" href="./?type=music">Music reviews</a>
          <a class="mdl-navigation__link" href="./?type=stage">Stage reviews</a>
+           <hr />
+        <a class="mdl-navigation__link" href="{$starratinglink}5">Five star reviews</a>
+        <a class="mdl-navigation__link" href="{$starratinglink}1">One star reviews</a>
        </nav>
      </div>
 
