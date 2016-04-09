@@ -5,7 +5,7 @@ $CAPI_host="http://content.guardianapis.com/";
 
 
 //set some parameters based on the querystring
-if(array_key_exists("type", $_GET))
+if ( (array_key_exists("type", $_GET)) &&  ($_GET["type"] === "film") || ($_GET["type"] === "music") || ($_GET["type"] === "stage")  )
 {
 $type=$_GET["type"];
 }
@@ -14,7 +14,7 @@ else
 $type="film";
 }
 
-if(array_key_exists("page", $_GET))
+if ( (array_key_exists("page", $_GET)) &&  (is_numeric($_GET["page"])) )
 {
 $page=$_GET["page"];
 }
@@ -24,7 +24,7 @@ $page=1;
 }
 
 //set some parameters based on the querystring
-if((array_key_exists("star-rating", $_GET)) && ($_GET["star-rating"] < 5) && ($_GET["star-rating"] >= 1) )
+if( (array_key_exists("star-rating", $_GET)) && ($_GET["star-rating"] <= 5) && ($_GET["star-rating"] >= 1) )
 {
 $star_rating=$_GET["star-rating"];
 $starratingtitle= "{$star_rating} Star";
