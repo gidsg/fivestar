@@ -23,6 +23,15 @@ else
 $page=1;
 }
 
+if($page>5){
+    http_response_code(410);
+    echo "Sorry pagination is only allowed up to 5 pages.";
+    
+    
+}
+else 
+{
+
 //set some parameters based on the querystring
 if( (array_key_exists("star-rating", $_GET)) && ($_GET["star-rating"] <= 5) && ($_GET["star-rating"] >= 1) )
 {
@@ -101,6 +110,7 @@ $stage_params = array('tag' => 'tone/reviews, stage/stage');
      $xp->setParameter($namespace, 'nextpagelink', $nextpagelink);
      $xp->setParameter($namespace, 'starratinglink', $starratinglink);
      $xp->setParameter($namespace, 'starratingtitle', $starratingtitle);
+     $xp->setParameter($namespace, 'page', $page);
 
   // create a DOM document and load the XML data
   $xml_doc = new DomDocument;
@@ -112,5 +122,6 @@ $stage_params = array('tag' => 'tone/reviews, stage/stage');
   } else {
       trigger_error('XSL transformation failed.', E_USER_ERROR);
   }
+}
 
 ?>
