@@ -31,7 +31,7 @@
   <header class="mdl-layout__header">
     <div class="mdl-layout__header-row">
       <!-- Title -->
-        <span class="mdl-layout-title">Five Star</span>
+        <h1><span class="mdl-layout-title title">Five Star</span></h1>
       <!-- Add spacer, to align navigation to the right -->
       <div class="mdl-layout-spacer"></div>
       <!-- Navigation. We hide it in small screens. -->
@@ -114,12 +114,15 @@
 
 
     </div>
-
+    <xsl:if test="$page &lt; 5">
                <a title="Next page" class="mdl-list__item-secondary-action" href="{$nextpagelink}"><i class="nav-icon material-icons">keyboard_arrow_right</i></a>
+    </xsl:if>
+                    
 <!--               <a class="mdl-list__item-secondary-action" href="#"><i class="nav-icon material-icons">keyboard_arrow_right</i></a>   -->
           <footer class="mdl-mini-footer">
                 <div class="mdl-mini-footer__left-section">
       <div class="mdl-logo">By <a href="/">Gideon Goldberg</a></div> <img src="https://static.guim.co.uk/sys-images/Guardian/Pix/pictures/2010/03/01/poweredbyguardianWHITE.png" alt="Powered by the Guardian" width="140" height="45" />
+             
   </div>
 
 
