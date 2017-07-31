@@ -1,5 +1,5 @@
           .star-on{
-              color: rgb(255,215,64);
+              color: rgb(204, 156, 0);
           }
           .trail-pic{
               vertical-align: text-top;
@@ -17,4 +17,8 @@
           .nav-icon{
               color:rgb(117, 117, 117);
               font-size: 48px !important;
+          }
+        
+          .item-link{
+        color: rgb(204, 156, 0);
           }

@@ -67,7 +67,7 @@
    <li class="mdl-list__item mdl-list__item--three-line item">
     <span class="mdl-list__item-primary-content">
      <xsl:variable name="headline" select="fields/field[@name='headline']"/>
-        <h5><a href="{@web-url}"><xsl:value-of select="php:function('strip_tags',string($headline))" disable-output-escaping="yes"/></a></h5>
+        <h5><a href="{@web-url}" class="item-link"><xsl:value-of select="php:function('strip_tags',string($headline))" disable-output-escaping="yes"/></a></h5>
         <xsl:if test="fields/field[@name='thumbnail']"><img src="{fields/field[@name='thumbnail']}" width="140" height="84" class="trail-pic" alt="" /></xsl:if>
         <xsl:variable name="trail-text" select="fields/field[@name='trail-text']"/>
         <xsl:value-of select="php:function('strip_tags',string($trail-text))" disable-output-escaping="yes"/> - <em><xsl:value-of select="fields/field[@name='byline']" disable-output-escaping="yes"/></em>
