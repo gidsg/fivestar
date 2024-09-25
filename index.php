@@ -5,7 +5,7 @@ $CAPI_host="http://content.guardianapis.com/";
 
 
 //set some parameters based on the querystring
-if ( (array_key_exists("type", $_GET)) &&  ($_GET["type"] === "film") || ($_GET["type"] === "music") || ($_GET["type"] === "stage")  )
+if ( (array_key_exists("type", $_GET)) &&  ($_GET["type"] === "film") || ($_GET["type"] === "music") || ($_GET["type"] === "stage") || ($_GET["type"] === "tv")  )
 {
 $type=$_GET["type"];
 }
@@ -75,6 +75,7 @@ $common_params = array(
 $film_params = array('tag' => 'tone/reviews, film/film');
 $music_params = array('tag' => 'tone/albumreview, music/music');
 $stage_params = array('tag' => 'tone/reviews, stage/stage');
+$tv_params = array('tag' => 'tv-and-radio/series/tv-review');
 
     if($type == "film")
     {
@@ -88,8 +89,13 @@ $stage_params = array('tag' => 'tone/reviews, stage/stage');
     }
     elseif($type == "stage")
     {
-     $query="{$CAPI_host}search?".http_build_query(array_merge($common_params, $stage_params));   ;
+     $query="{$CAPI_host}search?".http_build_query(array_merge($common_params, $stage_params));;
      $title='Stage Reviews';
+    }
+    elseif($type == "tv")
+    {
+     $query="{$CAPI_host}search?".http_build_query(array_merge($common_params, $tv_params));;
+     $title='TV Reviews';
     }
 
 
