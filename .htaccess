@@ -1,2 +1,14 @@
+ErrorDocument 401 "Error"
+ErrorDocument 403 "Error"
+
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /
+RewriteCond %{REQUEST_URI} ^/(stats|failed_auth\.html).*$ [NC]
+RewriteRule . - [L]
+</IfModule> 
+
 RewriteEngine on
 RewriteRule ^type/([^/\.]+)/?$ index.php?type=$1 [L]
+RewriteCond %{HTTPS} !=on
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301] 
