@@ -115,8 +115,8 @@
 
 
     </div>
-    <xsl:if test="$page &lt; 5 and count(/response/results/result) &gt; 100">
-           <a title="Next page" class="mdl-list__item-secondary-action" href="{$nextpagelink}"><i class="nav-icon material-icons">keyboard_arrow_right</i></a>
+    <xsl:if test="$page &lt; 5">
+               <a title="Next page" class="mdl-list__item-secondary-action" href="{$nextpagelink}"><i class="nav-icon material-icons">keyboard_arrow_right</i></a>
     </xsl:if>
                     
 <!--               <a class="mdl-list__item-secondary-action" href="#"><i class="nav-icon material-icons">keyboard_arrow_right</i></a>   -->
